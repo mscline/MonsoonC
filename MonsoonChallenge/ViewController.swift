@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         @IBOutlet weak var knobF: MCKnobTurnButton_Facade!
 
         // Guides for spacing
+        // (the values in the xml didn't make sense, so I just tried to make it look like the screenshot you provided; I used constraints in order to demonstrate the competency)
         @IBOutlet weak var topSpacer: UIView!
         @IBOutlet weak var centerSpacer: UIView!
         @IBOutlet weak var bottomSpacer: UIView!
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         addNavBarItems()
+        makeNavBarTransparentAndSetTintColor()
         setBackgroundImage()
         hideLayoutConvenienceGuidesAndSpacers()
 
@@ -55,6 +57,27 @@ class ViewController: UIViewController {
 
     }
 
+    func loadData(){
+
+        // the directions and the example were not totally consistent, so went with the drawing
+        let dataF = ["one of a kind","small batch","large batch","mass market"]
+        let dataC = ["savory","sweet","umami"]
+        let dataD = ["spicy","mild"]
+        let dataB = ["crunchy","mushy","smooth"]
+        let dataA = ["a little","a lot"]
+        let dataE = ["breakfast","brunch","lunch","snack","dinner"]
+
+        knobA.loadDataForButton(arrayOfButtonTitles: dataA)
+        knobB.loadDataForButton(arrayOfButtonTitles: dataB)
+        knobC.loadDataForButton(arrayOfButtonTitles: dataC)
+        knobD.loadDataForButton(arrayOfButtonTitles: dataD)
+        knobE.loadDataForButton(arrayOfButtonTitles: dataE)
+        knobF.loadDataForButton(arrayOfButtonTitles: dataF)
+
+        self.arrayOfKnobs = [knobA,knobB,knobC,knobD,knobE,knobF]
+        
+    }
+
     func addNavBarItems(){
 
         // add left nav bar buttons
@@ -65,28 +88,34 @@ class ViewController: UIViewController {
         let leftNavBarButtons = [leftButtonA, leftButtonB, leftButtonC ]
         self.navigationItem.leftBarButtonItems = leftNavBarButtons;
 
-        // set tint color
+    }
+
+    func makeNavBarTransparentAndSetTintColor(){
+
+        self.navigationController!.view.backgroundColor = UIColor.clearColor()
+        self.navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
+        self.navigationController!.navigationBar.translucent = true;
+
+        self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
+
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+
+        // set tint color for whole app, not just nav controller
+        //self.navigationController!.navigationBar.tintColor = UIColor.darkGrayColor()
         let window = UIApplication.sharedApplication().delegate?.window!
-        window?.tintColor = UIColor.darkGrayColor()
+        window?.tintColor = UIColor(red: 48/255.0, green: 48/255.0, blue: 48/255.0, alpha: 1)
 
     }
 
     func setBackgroundImage(){
 
-        //self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
-//        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-//        self.navigationController!.navigationBar.alpha = 0.0
-//        self.navigationController!.navigationBar.translucent = true;
-
-
         let imageV = UIImageView(frame: self.view.frame)
         imageV.image = UIImage(named: "MON_Rectangle-5")
         self.view.addSubview(imageV)
         self.view.sendSubviewToBack(imageV)
-
-
-        // *barTintColor* sets the background color
-        // *tintColor* sets the buttons color
 
     }
 
@@ -109,34 +138,11 @@ class ViewController: UIViewController {
 
     }
 
-    func loadData(){
-
-        // the directions and the example were not totally consistent, so went with the drawing
-        let dataF = ["one of a kind","small batch","large batch","mass market"]
-        let dataC = ["savory","sweet","umami"]
-        let dataD = ["spicy","mild"]
-        let dataB = ["crunchy","mushy","smooth"]
-        let dataA = ["a little","a lot"]
-        let dataE = ["breakfast","brunch","lunch","snack","dinner"]
-
-        knobA.loadDataForButton(arrayOfButtonTitles: dataA)
-        knobB.loadDataForButton(arrayOfButtonTitles: dataB)
-        knobC.loadDataForButton(arrayOfButtonTitles: dataC)
-        knobD.loadDataForButton(arrayOfButtonTitles: dataD)
-        knobE.loadDataForButton(arrayOfButtonTitles: dataE)
-        knobF.loadDataForButton(arrayOfButtonTitles: dataF)
-
-        self.arrayOfKnobs = [knobA,knobB,knobC,knobD,knobE,knobF]
-
-    }
-
 
     // MARK: BUTTONS
 
     @IBAction func onKnobPressed(sender: AnyObject) {
 
-
-        
     }
 
 
@@ -156,6 +162,7 @@ class ViewController: UIViewController {
     @IBAction func onMenu(sender: AnyObject) {
 
         println("menu button pressed")
+        knobF.rotateToIndexNumber(11)
     }
 
     func onSearchButtonPressed(){

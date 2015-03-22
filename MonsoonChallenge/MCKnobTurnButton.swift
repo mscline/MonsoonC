@@ -27,7 +27,7 @@ class MCKnobTurnButton: UIControl {
         var titleIndexBeingViewed:Int = 0  // the next title position should always be greater than the last; titleIndex % count = gives the true index number; set indexNumber to a large number if you want it to spin around multiple times
 
         var fontName = "Helvetica Neue"  // use TextFormatter.printListOfFontFamilyNames() to see list of fonts
-        var fontSize:CGFloat = 16
+        var fontSize:CGFloat = 15.5
         var fontColor = UIColor.whiteColor()
 
 
@@ -38,7 +38,7 @@ class MCKnobTurnButton: UIControl {
         var lineColor_default:UIColor = UIColor.purpleColor()
         var lineColor_selected:UIColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1.0)
 
-        var degreesBetweenArcs:Float = 20
+        var degreesBetweenArcs:Float = 12
         var startingOffset:Float = -90  // want to start drawing at -90 degrees
 
 
@@ -133,7 +133,6 @@ class MCKnobTurnButton: UIControl {
             titleLabel!.frame = frame
             titleLabel!.userInteractionEnabled = false
             self.addSubview(titleLabel!)
-            self.bringSubviewToFront(titleLabel!)
 
         }
 
@@ -143,6 +142,7 @@ class MCKnobTurnButton: UIControl {
             backgroundView!.frame = frame
             backgroundView!.userInteractionEnabled = false
             self.addSubview(backgroundView!)
+            self.sendSubviewToBack(backgroundView!)
 
         }
 
@@ -169,7 +169,7 @@ class MCKnobTurnButton: UIControl {
             abort()  // reminder for programmer: the next title position should always be greater than the last
         }
 
-        // notify delegate
+        // notify optional delegate
         //let shouldContinue:Bool = notifyDelegateWillChangeToIndex(nextIndex)
         //if shouldContinue == false {return;}
 

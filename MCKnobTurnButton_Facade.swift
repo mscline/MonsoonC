@@ -60,6 +60,7 @@ class MCKnobTurnButton_Facade: MCKnobTurnButton {
         let moveXPositions = arc4random_uniform(6) + 1
         let nextPosition = currentPosition + moveXPositions
 
+        // check to make sure not sti
         super.rotateToIndexNumber(Int(nextPosition))
 
     }

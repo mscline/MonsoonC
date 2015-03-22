@@ -20,6 +20,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYi-XF-n83" userLabel="Knob A" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="227" y="72" width="146" height="147"/>
+                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="Vb8-sa-gV6"/>
                                 </connections>
@@ -27,6 +30,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2w-UL-zUT" userLabel="Knob B" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="30" y="72" width="146" height="147"/>
+                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="eSd-Lb-4k5"/>
                                 </connections>
@@ -54,6 +60,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-GP-uFG" userLabel="Knob E" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="227" y="381" width="146" height="147"/>
+                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="nYh-8b-Qc3"/>
                                 </connections>
@@ -61,6 +70,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hz-o0-X94" userLabel="Knob F" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="30" y="381" width="146" height="147"/>
+                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="O3b-6k-Tpd"/>
                                 </connections>
@@ -219,8 +231,11 @@
                             <constraint firstItem="VYi-XF-n83" firstAttribute="centerX" secondItem="eVd-SF-UbU" secondAttribute="centerX" id="McC-08-pv7"/>
                             <constraint firstItem="fEv-GP-uFG" firstAttribute="centerY" secondItem="dYD-KO-sZ1" secondAttribute="centerY" id="NXp-D1-v05"/>
                             <constraint firstAttribute="centerX" secondItem="eVd-SF-UbU" secondAttribute="centerX" id="QSh-Tu-F8C"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8w9-7X-CuL" secondAttribute="bottom" constant="16" id="RAA-d8-vVP">
+                                <variation key="widthClass=compact" constant="17"/>
+                            </constraint>
                             <constraint firstItem="HjC-99-JCx" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="RR1-BP-OEX">
-                                <variation key="widthClass=compact" constant="16"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="HjC-99-JCx" firstAttribute="centerY" secondItem="VYi-XF-n83" secondAttribute="centerY" id="TiZ-ub-IQx"/>
                             <constraint firstAttribute="centerY" secondItem="8w9-7X-CuL" secondAttribute="centerY" id="TqY-Hn-5Du"/>
@@ -257,16 +272,19 @@
                             <constraint firstItem="qJb-HC-xbE" firstAttribute="top" secondItem="dYD-KO-sZ1" secondAttribute="bottom" id="mK8-La-uNx">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9cJ-72-AJq" secondAttribute="bottom" constant="16" id="nOg-vQ-VcX">
+                                <variation key="widthClass=compact" constant="17"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" secondItem="Og0-zU-dj7" secondAttribute="centerY" id="o7R-3C-hQl"/>
                             <constraint firstAttribute="centerX" secondItem="Lto-Sl-lzY" secondAttribute="centerX" id="ob4-A5-fqc"/>
                             <constraint firstItem="dYD-KO-sZ1" firstAttribute="top" secondItem="Og0-zU-dj7" secondAttribute="bottom" id="pT9-FO-l4b">
-                                <variation key="widthClass=compact" constant="16"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="TjB-b4-qoh" firstAttribute="width" secondItem="F2w-UL-zUT" secondAttribute="width" id="pqg-3y-oiv"/>
                             <constraint firstItem="F2w-UL-zUT" firstAttribute="centerX" secondItem="TjB-b4-qoh" secondAttribute="centerX" id="qBR-gq-KuF"/>
                             <constraint firstItem="qJb-HC-xbE" firstAttribute="width" secondItem="Og0-zU-dj7" secondAttribute="width" id="qTI-FF-DAd"/>
                             <constraint firstItem="Og0-zU-dj7" firstAttribute="top" secondItem="HjC-99-JCx" secondAttribute="bottom" id="qUz-vN-m24">
-                                <variation key="widthClass=compact" constant="16"/>
+                                <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="qJb-HC-xbE" firstAttribute="centerY" secondItem="9cJ-72-AJq" secondAttribute="centerY" id="rMS-us-2u1"/>
                             <constraint firstItem="dYD-KO-sZ1" firstAttribute="height" secondItem="Og0-zU-dj7" secondAttribute="height" id="rWb-su-YoA"/>
@@ -358,9 +376,11 @@
                                 <exclude reference="rMS-us-2u1"/>
                                 <exclude reference="tLY-30-g69"/>
                                 <exclude reference="vX5-7E-hMD"/>
-                                <exclude reference="lll-Dj-uTB"/>
                                 <exclude reference="Ued-ny-gi8"/>
                                 <exclude reference="VTt-8J-sjy"/>
+                                <exclude reference="RAA-d8-vVP"/>
+                                <exclude reference="lll-Dj-uTB"/>
+                                <exclude reference="nOg-vQ-VcX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -437,15 +457,17 @@
                                 <exclude reference="XMA-5J-x5i"/>
                                 <include reference="IyH-mr-hcu"/>
                                 <exclude reference="L3Y-Wm-Ksa"/>
-                                <include reference="afU-UZ-hv8"/>
+                                <exclude reference="afU-UZ-hv8"/>
                                 <include reference="mK8-La-uNx"/>
                                 <include reference="qTI-FF-DAd"/>
-                                <include reference="rMS-us-2u1"/>
+                                <exclude reference="rMS-us-2u1"/>
                                 <include reference="tLY-30-g69"/>
                                 <include reference="vX5-7E-hMD"/>
-                                <include reference="lll-Dj-uTB"/>
                                 <include reference="Ued-ny-gi8"/>
                                 <exclude reference="VTt-8J-sjy"/>
+                                <include reference="RAA-d8-vVP"/>
+                                <include reference="lll-Dj-uTB"/>
+                                <include reference="nOg-vQ-VcX"/>
                             </mask>
                         </variation>
                     </view>
