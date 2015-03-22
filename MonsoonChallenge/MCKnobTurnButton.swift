@@ -53,7 +53,7 @@ class MCKnobTurnButton: UIControl {
 
 
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    // MARK: PUBLIC FUNCTIONS FOR USERS TO USE
+    // MARK: FUNCTIONS FOR EXTERNAL USE
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
     func loadDataForButton(#arrayOfButtonTitles:Array<String>){
@@ -174,7 +174,7 @@ class MCKnobTurnButton: UIControl {
         //if shouldContinue == false {return;}
 
         // calculate duration of time it will take to move
-        let distanceToTravelBetweenSectionsInDegrees = Float(360 / buttonTitles.count) - degreesBetweenArcs
+        let distanceToTravelBetweenSectionsInDegrees = Float(360 / buttonTitles.count) 
         let positionsToMove = Float(nextIndex - titleIndexBeingViewed)
         let distanceToTravelInDegrees = positionsToMove * distanceToTravelBetweenSectionsInDegrees
         let durationOfMoveInSeconds = distanceToTravelInDegrees / angularVelocityInDegreesPerSecond
@@ -183,7 +183,7 @@ class MCKnobTurnButton: UIControl {
         // (we will always move from our current angle to a bigger angle, 
         //  so you might be at 360 and if you move 180, the angle is 540)
 
-        let finalAngle = Float(nextIndex) * distanceToTravelBetweenSectionsInDegrees //+ startingOffset
+        let finalAngle = Float(nextIndex) * distanceToTravelBetweenSectionsInDegrees
         let finalAngleInRadians = finalAngle*(3.14159/180)
 
 
