@@ -20,9 +20,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYi-XF-n83" userLabel="Knob A" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="227" y="72" width="146" height="147"/>
-                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="Vb8-sa-gV6"/>
                                 </connections>
@@ -30,9 +27,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2w-UL-zUT" userLabel="Knob B" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="30" y="72" width="146" height="147"/>
-                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="eSd-Lb-4k5"/>
                                 </connections>
@@ -60,9 +54,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEv-GP-uFG" userLabel="Knob E" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="227" y="381" width="146" height="147"/>
-                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="touchDown" id="nYh-8b-Qc3"/>
                                 </connections>
@@ -70,9 +61,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hz-o0-X94" userLabel="Knob F" customClass="MCKnobTurnButton_Facade" customModule="MonsoonChallenge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="30" y="381" width="146" height="147"/>
-                                </variation>
                                 <connections>
                                     <action selector="onKnobPressed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="O3b-6k-Tpd"/>
                                 </connections>
@@ -247,7 +235,7 @@
                             <constraint firstItem="HjC-99-JCx" firstAttribute="leading" secondItem="8gl-95-6XU" secondAttribute="trailing" id="Vth-AZ-xbm"/>
                             <constraint firstItem="HjC-99-JCx" firstAttribute="centerY" secondItem="F2w-UL-zUT" secondAttribute="centerY" id="Weh-fK-gPB"/>
                             <constraint firstItem="8gl-95-6XU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XCE-eD-fUg">
-                                <variation key="widthClass=compact" constant="3"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="8w9-7X-CuL" firstAttribute="leading" secondItem="qJb-HC-xbE" secondAttribute="trailing" constant="3" id="XMA-5J-x5i"/>
                             <constraint firstItem="TjB-b4-qoh" firstAttribute="height" secondItem="eVd-SF-UbU" secondAttribute="height" id="Xbi-0T-afQ"/>
@@ -314,6 +302,13 @@
                                 <exclude reference="8w9-7X-CuL"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="RAA-d8-vVP"/>
+                                <exclude reference="lll-Dj-uTB"/>
+                                <exclude reference="nOg-vQ-VcX"/>
+                                <exclude reference="TqY-Hn-5Du"/>
+                                <exclude reference="XMA-5J-x5i"/>
+                                <exclude reference="Ued-ny-gi8"/>
+                                <exclude reference="VTt-8J-sjy"/>
                                 <exclude reference="KNe-d7-hgd"/>
                                 <exclude reference="XCE-eD-fUg"/>
                                 <exclude reference="gaQ-2K-ahf"/>
@@ -335,6 +330,10 @@
                                 <exclude reference="gsC-Ha-b86"/>
                                 <exclude reference="ob4-A5-fqc"/>
                                 <exclude reference="z6J-jo-Rc0"/>
+                                <exclude reference="Ma8-Jb-MSB"/>
+                                <exclude reference="ici-ov-7Aa"/>
+                                <exclude reference="o7R-3C-hQl"/>
+                                <exclude reference="qUz-vN-m24"/>
                                 <exclude reference="335-BI-fw4"/>
                                 <exclude reference="7F7-8f-nPH"/>
                                 <exclude reference="ALA-Kh-UH7"/>
@@ -353,21 +352,15 @@
                                 <exclude reference="w5G-HP-kUE"/>
                                 <exclude reference="McC-08-pv7"/>
                                 <exclude reference="aDK-su-1yH"/>
-                                <exclude reference="Ma8-Jb-MSB"/>
-                                <exclude reference="ici-ov-7Aa"/>
-                                <exclude reference="o7R-3C-hQl"/>
-                                <exclude reference="qUz-vN-m24"/>
-                                <exclude reference="QSh-Tu-F8C"/>
                                 <exclude reference="5wA-CR-u5w"/>
                                 <exclude reference="6FI-Jr-6Kf"/>
                                 <exclude reference="V4U-HS-nZT"/>
                                 <exclude reference="euv-8c-MMr"/>
                                 <exclude reference="pT9-FO-l4b"/>
                                 <exclude reference="rWb-su-YoA"/>
+                                <exclude reference="QSh-Tu-F8C"/>
                                 <exclude reference="IAC-98-9B1"/>
                                 <exclude reference="NXp-D1-v05"/>
-                                <exclude reference="TqY-Hn-5Du"/>
-                                <exclude reference="XMA-5J-x5i"/>
                                 <exclude reference="IyH-mr-hcu"/>
                                 <exclude reference="L3Y-Wm-Ksa"/>
                                 <exclude reference="afU-UZ-hv8"/>
@@ -376,11 +369,6 @@
                                 <exclude reference="rMS-us-2u1"/>
                                 <exclude reference="tLY-30-g69"/>
                                 <exclude reference="vX5-7E-hMD"/>
-                                <exclude reference="Ued-ny-gi8"/>
-                                <exclude reference="VTt-8J-sjy"/>
-                                <exclude reference="RAA-d8-vVP"/>
-                                <exclude reference="lll-Dj-uTB"/>
-                                <exclude reference="nOg-vQ-VcX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -401,6 +389,13 @@
                                 <include reference="8w9-7X-CuL"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="RAA-d8-vVP"/>
+                                <include reference="lll-Dj-uTB"/>
+                                <include reference="nOg-vQ-VcX"/>
+                                <exclude reference="TqY-Hn-5Du"/>
+                                <exclude reference="XMA-5J-x5i"/>
+                                <include reference="Ued-ny-gi8"/>
+                                <exclude reference="VTt-8J-sjy"/>
                                 <include reference="KNe-d7-hgd"/>
                                 <include reference="XCE-eD-fUg"/>
                                 <include reference="gaQ-2K-ahf"/>
@@ -422,6 +417,10 @@
                                 <include reference="gsC-Ha-b86"/>
                                 <exclude reference="ob4-A5-fqc"/>
                                 <include reference="z6J-jo-Rc0"/>
+                                <include reference="Ma8-Jb-MSB"/>
+                                <include reference="ici-ov-7Aa"/>
+                                <include reference="o7R-3C-hQl"/>
+                                <include reference="qUz-vN-m24"/>
                                 <include reference="335-BI-fw4"/>
                                 <exclude reference="7F7-8f-nPH"/>
                                 <include reference="ALA-Kh-UH7"/>
@@ -440,21 +439,15 @@
                                 <exclude reference="w5G-HP-kUE"/>
                                 <include reference="McC-08-pv7"/>
                                 <include reference="aDK-su-1yH"/>
-                                <include reference="Ma8-Jb-MSB"/>
-                                <include reference="ici-ov-7Aa"/>
-                                <include reference="o7R-3C-hQl"/>
-                                <include reference="qUz-vN-m24"/>
-                                <exclude reference="QSh-Tu-F8C"/>
                                 <include reference="5wA-CR-u5w"/>
                                 <include reference="6FI-Jr-6Kf"/>
                                 <include reference="V4U-HS-nZT"/>
                                 <include reference="euv-8c-MMr"/>
                                 <include reference="pT9-FO-l4b"/>
                                 <include reference="rWb-su-YoA"/>
+                                <exclude reference="QSh-Tu-F8C"/>
                                 <include reference="IAC-98-9B1"/>
                                 <include reference="NXp-D1-v05"/>
-                                <exclude reference="TqY-Hn-5Du"/>
-                                <exclude reference="XMA-5J-x5i"/>
                                 <include reference="IyH-mr-hcu"/>
                                 <exclude reference="L3Y-Wm-Ksa"/>
                                 <exclude reference="afU-UZ-hv8"/>
@@ -463,11 +456,6 @@
                                 <exclude reference="rMS-us-2u1"/>
                                 <include reference="tLY-30-g69"/>
                                 <include reference="vX5-7E-hMD"/>
-                                <include reference="Ued-ny-gi8"/>
-                                <exclude reference="VTt-8J-sjy"/>
-                                <include reference="RAA-d8-vVP"/>
-                                <include reference="lll-Dj-uTB"/>
-                                <include reference="nOg-vQ-VcX"/>
                             </mask>
                         </variation>
                     </view>
@@ -506,6 +494,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pJ4-RJ-bBc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bJb-bn-1uB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
