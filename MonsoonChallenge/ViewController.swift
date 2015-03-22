@@ -22,27 +22,56 @@ class ViewController: UIViewController {
         var arrayOfKnobs:[MCKnobTurnButton_Facade] = Array()
 
 
+    // MARK: SETUP
+
     required init(coder aDecoder: NSCoder) {
 
         super.init(coder: aDecoder)
-        
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addNavBarItems()
+        setBackgroundImage()
         loadData()
+
+    }
+
+    func addNavBarItems(){
+
+        // add left nav bar buttons
+        let leftButtonA = UIBarButtonItem(image: UIImage(named: "MON_searchIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "onSearchButtonPressed")
+        let leftButtonB = UIBarButtonItem(image: UIImage(named: "MON_calendarIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "onCalendarButtonPressed")
+        let leftButtonC = UIBarButtonItem(image: UIImage(named: "MON_compassIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "onCompassButtonPressed")
+
+        let leftNavBarButtons = [leftButtonA, leftButtonB, leftButtonC ]
+        self.navigationItem.leftBarButtonItems = leftNavBarButtons;
+
+        // set tint color
+        let window = UIApplication.sharedApplication().delegate?.window!
+        window?.tintColor = UIColor.darkGrayColor()
+
+    }
+
+    func setBackgroundImage(){
+
+        let imageV = UIImageView(frame: self.view.frame)
+        imageV.image = UIImage(named: "MON_Rectangle-5")
+        self.view.addSubview(imageV)
+        self.view.sendSubviewToBack(imageV)
 
     }
 
     func loadData(){
 
-        let dataA = ["one of a kind","small batch","large batch","mass market"]
-        let dataB = ["savory","sweet","umami"]
-        let dataC = ["spicy","mild"]
-        let dataD = ["crunchy","mushy","smooth"]
-        let dataE = ["a little","a lot"]
-        let dataF = ["breakfast","brunch","lunch","snack","dinner"]
+        let dataB = ["one of a kind","small batch","large batch","mass market"]
+        let dataA = ["savory","sweet","umami"]
+        let dataD = ["spicy","mild"]
+        let dataC = ["crunchy","mushy","smooth"]
+        let dataF = ["a little","a lot"]
+        let dataE = ["breakfast","brunch","lunch","snack","dinner"]
 
         knobA.loadDataForButton(arrayOfButtonTitles: dataA)
         knobB.loadDataForButton(arrayOfButtonTitles: dataB)
@@ -79,13 +108,29 @@ class ViewController: UIViewController {
     }
 
 
+
     // MARK: NAV BUTTONS
 
     @IBAction func onMenu(sender: AnyObject) {
 
+        println("menu button pressed")
     }
 
+    func onSearchButtonPressed(){
 
+        println("search button pressed")
+    }
+
+    func onCalendarButtonPressed(){
+
+        println("calendar button pressed")
+
+    }
+
+    func onCompassButtonPressed(){
+
+        println("compass button pressed")
+    }
 
     
 
