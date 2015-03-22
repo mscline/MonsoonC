@@ -69,6 +69,9 @@ class MCKnobTurnButton_Facade: MCKnobTurnButton {
 
     override func rotateToIndexNumber(desiredIndex:Int)
     {
+        // UPGRADE: ???
+        // it will currently spin either clockwise or counter clockwise to move into position
+        // should probably refactor so that it will only move clockwise, then
         // if the indexNumber is greater than the number of items, it will spin around multiple times
 
         super.rotateToIndexNumber(desiredIndex)
@@ -78,11 +81,13 @@ class MCKnobTurnButton_Facade: MCKnobTurnButton {
     func rotateToRandomPosition(){
 
         let currentPosition = self.titleIndexBeingViewed
-        let moveXPositions = arc4random_uniform(6) + 1
-        let nextPosition = currentPosition + moveXPositions
+        let moveXPositions = Int(arc4random_uniform(6) + 1)
 
-        // check to make sure not sti
-        super.rotateToIndexNumber(Int(nextPosition))
+        for var x = 0; x < moveXPositions; x++ {
+
+            super.rotateToIndexNumber(Int(x))
+            self.musicPlayer.stopMusic()
+        }
 
     }
 

@@ -11,8 +11,8 @@ import UIKit
 
 @objc protocol MCKnobTurnButton_optionalProtocol{
 
-    optional func willMoveToIndex_returnFalseToCancel(indexNumber:Int)->(Bool)
-    optional func didFinishMovingToIndex(indexNumber:Int)
+    optional func willMoveToIndex_returnFalseToCancel(sender:AnyObject?, indexNumber:Int)->(Bool)
+    optional func didFinishMovingToIndex(sender:AnyObject?, indexNumber:Int)  // method(#sender in the method name would be better, if anyone can figure out the selector syntax
 
 }
 
@@ -238,13 +238,13 @@ class MCKnobTurnButton: UIControl {
         if delegate == nil {return true;}
 
         let ourDelegate: AnyObject! = delegate
-        let willRun = ourDelegate!.respondsToSelector("willMoveToIndex_returnFalseToCancel:")
+        let willRun = ourDelegate!.respondsToSelector("willMoveToIndex_returnFalseToCancel:indexNumber:") // note: not colon after par
 
         if willRun == true {
 
             let theNextIndex = nextIndex % buttonTitles.count
-            let shouldContinue:Bool = delegate?.willMoveToIndex_returnFalseToCancel!(theNextIndex) ?? false
-                // note, you need to bang the method call, interesting
+            let shouldContinue:Bool = delegate?.willMoveToIndex_returnFalseToCancel!(self, indexNumber: theNextIndex) ?? false  // note, you need to bang the method call, interesting
+
             return shouldContinue
 
         }else{
@@ -260,12 +260,12 @@ class MCKnobTurnButton: UIControl {
         if delegate == nil {return;}
 
         let ourDelegate: AnyObject! = delegate
-        let willRun = ourDelegate!.respondsToSelector("didFinishMovingToIndex:")
+        let willRun = ourDelegate!.respondsToSelector("didFinishMovingToIndex:indexNumber:")
 
         if willRun == true {
 
             let currentIndex = titleIndexBeingViewed % buttonTitles.count
-            delegate?.didFinishMovingToIndex!(currentIndex)
+            delegate?.didFinishMovingToIndex!(self, indexNumber: currentIndex)
 
         }
 

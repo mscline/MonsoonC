@@ -31,6 +31,10 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
         // Arrays
         var arrayOfKnobs:[MCKnobTurnButton_Facade] = Array()
 
+        // MUSIC FOR SHUFFLE (each knob can play its own music, but the VC may want to as well)
+        var musicPlayer = MCMusicPlayer()
+        var numberOfKnobsReportedBackThatCompletedAnimation = -100000  // quick hack
+    
 
     // MARK: SETUP
 
@@ -47,6 +51,7 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
         makeNavBarTransparentAndSetTintColor()
         setBackgroundImage()
         hideLayoutConvenienceGuidesAndSpacers()
+        musicPlayer.songNameAndExtention = "Highstrung.mp3"
 
     }
 
@@ -74,7 +79,6 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
         knobE.loadDataForButton(arrayOfButtonTitles: dataE)
         knobF.loadDataForButton(arrayOfButtonTitles: dataF)
 
-        // note: MCKnobButton is a control, use the protocol if you want to know when a rotation is finished
         knobA.delegate = self
         knobB.delegate = self
         knobC.delegate = self
@@ -151,6 +155,8 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
 
     @IBAction func onKnobPressed(sender: AnyObject) {
 
+        println("Knob control was touched")
+
     }
 
 
@@ -158,7 +164,10 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
 
         for knob in arrayOfKnobs {
 
+            musicPlayer.playMusic()
+            numberOfKnobsReportedBackThatCompletedAnimation = 0
             knob.rotateToRandomPosition()
+
         }
 
     }
@@ -198,17 +207,26 @@ class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
 
     
     // MARK: KNOB OPTIONAL PROTOCOL
+    // note: MCKnobButton is a control, use the protocol if you want to know when a rotation is finished
 
-    func willMoveToIndex_returnFalseToCancel(indexNumber: Int) -> (Bool) {
+    func willMoveToIndex_returnFalseToCancel(sender:AnyObject?, indexNumber: Int) -> (Bool) {
 
         println("will move to next index")
         return true
 
     }
 
-    func didFinishMovingToIndex(indexNumber: Int) {
+    func didFinishMovingToIndex(sender: AnyObject?, indexNumber: Int) {
 
         println("did finish moving to index")
+        numberOfKnobsReportedBackThatCompletedAnimation++
+
+        if numberOfKnobsReportedBackThatCompletedAnimation >= 6 {
+
+            musicPlayer.fadeMusicThenStop()
+            numberOfKnobsReportedBackThatCompletedAnimation = -100000
+        }
+
     }
 
 }
