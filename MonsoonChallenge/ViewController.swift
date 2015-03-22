@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MCKnobTurnButton_optionalProtocol {
 
 
         // KNOBS
@@ -73,6 +73,14 @@ class ViewController: UIViewController {
         knobD.loadDataForButton(arrayOfButtonTitles: dataD)
         knobE.loadDataForButton(arrayOfButtonTitles: dataE)
         knobF.loadDataForButton(arrayOfButtonTitles: dataF)
+
+        // note: MCKnobButton is a control, use the protocol if you want to know when a rotation is finished
+        knobA.delegate = self
+        knobB.delegate = self
+        knobC.delegate = self
+        knobD.delegate = self
+        knobE.delegate = self
+        knobF.delegate = self
 
         self.arrayOfKnobs = [knobA,knobB,knobC,knobD,knobE,knobF]
         
@@ -162,7 +170,14 @@ class ViewController: UIViewController {
     @IBAction func onMenu(sender: AnyObject) {
 
         println("menu button pressed")
-        knobF.rotateToIndexNumber(11)
+
+        // TEST
+        //knobF.rotateToIndexNumber(11)
+
+//        println("Top Right Knob")
+//        println("testing: indexPosition = \(knobF.returnIndexPosition())")
+//        println("testing: indexNumber = \(knobF.returnIndexNumberOfTitleBeingDisplayed())")
+
     }
 
     func onSearchButtonPressed(){
@@ -182,6 +197,19 @@ class ViewController: UIViewController {
     }
 
     
+    // MARK: KNOB OPTIONAL PROTOCOL
+
+    func willMoveToIndex_returnFalseToCancel(indexNumber: Int) -> (Bool) {
+
+        println("will move to next index")
+        return true
+
+    }
+
+    func didFinishMovingToIndex(indexNumber: Int) {
+
+        println("did finish moving to index")
+    }
 
 }
 

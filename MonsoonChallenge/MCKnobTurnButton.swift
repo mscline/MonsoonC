@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @objc protocol MCKnobTurnButton_optionalProtocol{
 
     optional func willMoveToIndex_returnFalseToCancel(indexNumber:Int)->(Bool)
@@ -170,8 +171,8 @@ class MCKnobTurnButton: UIControl {
         }
 
         // notify optional delegate
-        //let shouldContinue:Bool = notifyDelegateWillChangeToIndex(nextIndex)
-        //if shouldContinue == false {return;}
+        let shouldContinue:Bool = notifyDelegateWillChangeToIndex_returnFalseToCancelChange(nextIndex: nextIndex)
+        if shouldContinue == false {return;}
 
         // calculate duration of time it will take to move
         let distanceToTravelBetweenSectionsInDegrees = Float(360 / buttonTitles.count) 
@@ -216,6 +217,8 @@ class MCKnobTurnButton: UIControl {
         }) { (reallyFinishedAnimation) -> Void in
 
             self.musicPlayer.fadeMusicThenStop()
+            self.notifyDelegateDidFinishChangingToIndex()
+
         }
 
     }
@@ -230,34 +233,43 @@ class MCKnobTurnButton: UIControl {
 
     // MARK: DELEGATE
 
-//    func notifyDelegateWillChangeToIndex(index:Int){
-//
-//        if delegate != nil {return;}
-//
-//        // FOR UPGRADE: optionals being difficult
-//
-//        let ourDelegate: AnyObject! = delegate
-//        let willRun = ourDelegate!.respondsToSelector("willMoveToIndex:")
-//
-//        if willRun == true {
-//
-//            let nextIndex = index % buttonTitles.count
-//            delegate?.willMoveToIndex_returnFalseToCancel(nextIndex)
-//
-//        }
-//    }
-//
-//    func notifyDelegateDidFinishChangingToIndex(){
-//
-//        if delegate != nil {return;}
-//
-//        if delegate!.respondsToSelector("didFinishMovingToIndex:") {
-//
-//            let currentIndex = titleIndexBeingViewed % buttonTitles.count
-//            delegate!.didFinishMovingToIndex(currentIndex)
-//            
-//        }
-//    }
+    func notifyDelegateWillChangeToIndex_returnFalseToCancelChange(#nextIndex:Int)->(Bool){
+
+        if delegate == nil {return true;}
+
+        let ourDelegate: AnyObject! = delegate
+        let willRun = ourDelegate!.respondsToSelector("willMoveToIndex_returnFalseToCancel:")
+
+        if willRun == true {
+
+            let theNextIndex = nextIndex % buttonTitles.count
+            let shouldContinue:Bool = delegate?.willMoveToIndex_returnFalseToCancel!(theNextIndex) ?? false
+                // note, you need to bang the method call, interesting
+            return shouldContinue
+
+        }else{
+
+            return true
+
+        }
+    }
+
+    func notifyDelegateDidFinishChangingToIndex(){
+
+
+        if delegate == nil {return;}
+
+        let ourDelegate: AnyObject! = delegate
+        let willRun = ourDelegate!.respondsToSelector("didFinishMovingToIndex:")
+
+        if willRun == true {
+
+            let currentIndex = titleIndexBeingViewed % buttonTitles.count
+            delegate?.didFinishMovingToIndex!(currentIndex)
+
+        }
+
+    }
 
 
     // MARK: DRAW BACKGROUND VIEW
