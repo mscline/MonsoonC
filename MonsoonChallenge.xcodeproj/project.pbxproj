@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE3BC8C71ABE1935008AE8DE /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BC8C61ABE1935008AE8DE /* TextFormatter.swift */; };
+		AE3BC8CB1ABE5A0E008AE8DE /* MCKnobTurnButton_Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3BC8CA1ABE5A0E008AE8DE /* MCKnobTurnButton_Facade.swift */; };
+		AE3BC8CF1ABE5BA9008AE8DE /* MCMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3BC8CE1ABE5BA9008AE8DE /* MCMusicPlayer.m */; };
+		AE3BC8D11ABE5BF6008AE8DE /* Highstrung.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE3BC8D01ABE5BF6008AE8DE /* Highstrung.mp3 */; };
 		AE4D691A1ABDDB8D005878EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69191ABDDB8D005878EF /* AppDelegate.swift */; };
 		AE4D691D1ABDDB8D005878EF /* MonsoonChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4D691B1ABDDB8D005878EF /* MonsoonChallenge.xcdatamodeld */; };
 		AE4D691F1ABDDB8D005878EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D691E1ABDDB8D005878EF /* ViewController.swift */; };
@@ -14,6 +18,7 @@
 		AE4D69241ABDDB8D005878EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4D69231ABDDB8D005878EF /* Images.xcassets */; };
 		AE4D69271ABDDB8D005878EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4D69251ABDDB8D005878EF /* LaunchScreen.xib */; };
 		AE4D69331ABDDB8D005878EF /* MonsoonChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69321ABDDB8D005878EF /* MonsoonChallengeTests.swift */; };
+		AE4D693D1ABDDC1F005878EF /* MCKnobTurnButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D693C1ABDDC1F005878EF /* MCKnobTurnButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE3BC8C61ABE1935008AE8DE /* TextFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		AE3BC8CA1ABE5A0E008AE8DE /* MCKnobTurnButton_Facade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCKnobTurnButton_Facade.swift; path = ../MCKnobTurnButton_Facade.swift; sourceTree = "<group>"; };
+		AE3BC8CC1ABE5BA9008AE8DE /* MonsoonChallenge-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonsoonChallenge-Bridging-Header.h"; sourceTree = "<group>"; };
+		AE3BC8CD1ABE5BA9008AE8DE /* MCMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMusicPlayer.h; sourceTree = "<group>"; };
+		AE3BC8CE1ABE5BA9008AE8DE /* MCMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMusicPlayer.m; sourceTree = "<group>"; };
+		AE3BC8D01ABE5BF6008AE8DE /* Highstrung.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Highstrung.mp3; sourceTree = "<group>"; };
 		AE4D69141ABDDB8D005878EF /* MonsoonChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsoonChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4D69181ABDDB8D005878EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4D69191ABDDB8D005878EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +49,7 @@
 		AE4D692C1ABDDB8D005878EF /* MonsoonChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsoonChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4D69311ABDDB8D005878EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE4D69321ABDDB8D005878EF /* MonsoonChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsoonChallengeTests.swift; sourceTree = "<group>"; };
+		AE4D693C1ABDDC1F005878EF /* MCKnobTurnButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCKnobTurnButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE3BC8C51ABE190D008AE8DE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AE3BC8C61ABE1935008AE8DE /* TextFormatter.swift */,
+				AE3BC8CD1ABE5BA9008AE8DE /* MCMusicPlayer.h */,
+				AE3BC8CE1ABE5BA9008AE8DE /* MCMusicPlayer.m */,
+				AE3BC8CC1ABE5BA9008AE8DE /* MonsoonChallenge-Bridging-Header.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		AE4D690B1ABDDB8D005878EF = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +102,12 @@
 		AE4D69161ABDDB8D005878EF /* MonsoonChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				AE4D69191ABDDB8D005878EF /* AppDelegate.swift */,
-				AE4D691E1ABDDB8D005878EF /* ViewController.swift */,
 				AE4D69201ABDDB8D005878EF /* Main.storyboard */,
-				AE4D69231ABDDB8D005878EF /* Images.xcassets */,
-				AE4D69251ABDDB8D005878EF /* LaunchScreen.xib */,
-				AE4D691B1ABDDB8D005878EF /* MonsoonChallenge.xcdatamodeld */,
+				AE4D691E1ABDDB8D005878EF /* ViewController.swift */,
+				AE3BC8CA1ABE5A0E008AE8DE /* MCKnobTurnButton_Facade.swift */,
+				AE4D693C1ABDDC1F005878EF /* MCKnobTurnButton.swift */,
+				AE3BC8C51ABE190D008AE8DE /* Utilities */,
+				AE4D693E1ABDE9FC005878EF /* Default */,
 				AE4D69171ABDDB8D005878EF /* Supporting Files */,
 			);
 			path = MonsoonChallenge;
@@ -93,6 +116,7 @@
 		AE4D69171ABDDB8D005878EF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE3BC8D01ABE5BF6008AE8DE /* Highstrung.mp3 */,
 				AE4D69181ABDDB8D005878EF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +137,17 @@
 				AE4D69311ABDDB8D005878EF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE4D693E1ABDE9FC005878EF /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				AE4D69231ABDDB8D005878EF /* Images.xcassets */,
+				AE4D69251ABDDB8D005878EF /* LaunchScreen.xib */,
+				AE4D691B1ABDDB8D005878EF /* MonsoonChallenge.xcdatamodeld */,
+				AE4D69191ABDDB8D005878EF /* AppDelegate.swift */,
+			);
+			name = Default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +233,7 @@
 				AE4D69221ABDDB8D005878EF /* Main.storyboard in Resources */,
 				AE4D69271ABDDB8D005878EF /* LaunchScreen.xib in Resources */,
 				AE4D69241ABDDB8D005878EF /* Images.xcassets in Resources */,
+				AE3BC8D11ABE5BF6008AE8DE /* Highstrung.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3BC8C71ABE1935008AE8DE /* TextFormatter.swift in Sources */,
+				AE4D693D1ABDDC1F005878EF /* MCKnobTurnButton.swift in Sources */,
 				AE4D691F1ABDDB8D005878EF /* ViewController.swift in Sources */,
+				AE3BC8CF1ABE5BA9008AE8DE /* MCMusicPlayer.m in Sources */,
 				AE4D691A1ABDDB8D005878EF /* AppDelegate.swift in Sources */,
+				AE3BC8CB1ABE5A0E008AE8DE /* MCKnobTurnButton_Facade.swift in Sources */,
 				AE4D691D1ABDDB8D005878EF /* MonsoonChallenge.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,9 +380,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonsoonChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsoonChallenge/MonsoonChallenge-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,9 +393,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonsoonChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonsoonChallenge/MonsoonChallenge-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +454,7 @@
 				AE4D69381ABDDB8D005878EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE4D69391ABDDB8D005878EF /* Build configuration list for PBXNativeTarget "MonsoonChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +463,7 @@
 				AE4D693B1ABDDB8D005878EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
