@@ -44,7 +44,13 @@ class ViewController: UIViewController {
 
         addNavBarItems()
         setBackgroundImage()
-        //hideLayoutConvenienceGuidesAndSpacers()
+        hideLayoutConvenienceGuidesAndSpacers()
+
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         loadData()
 
     }
@@ -67,15 +73,26 @@ class ViewController: UIViewController {
 
     func setBackgroundImage(){
 
+        //self.navigationController!.navigationBar.barTintColor = UIColor.clearColor()
+//        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+//        self.navigationController!.navigationBar.alpha = 0.0
+//        self.navigationController!.navigationBar.translucent = true;
+
+
         let imageV = UIImageView(frame: self.view.frame)
         imageV.image = UIImage(named: "MON_Rectangle-5")
         self.view.addSubview(imageV)
         self.view.sendSubviewToBack(imageV)
 
+
+        // *barTintColor* sets the background color
+        // *tintColor* sets the buttons color
+
     }
 
     func hideLayoutConvenienceGuidesAndSpacers(){
 
+        // may wish to remove before ship (but doesn't really make a big difference)
         topSpacer.backgroundColor = UIColor.clearColor()
         bottomSpacer.backgroundColor = UIColor.clearColor()
         centerSpacer.backgroundColor = UIColor.clearColor()
@@ -83,15 +100,23 @@ class ViewController: UIViewController {
         topLeftSpacer.backgroundColor = UIColor.clearColor()
         topRightSpacer.backgroundColor = UIColor.clearColor()
 
+        knobA.backgroundColor = UIColor.clearColor()
+        knobB.backgroundColor = UIColor.clearColor()
+        knobC.backgroundColor = UIColor.clearColor()
+        knobD.backgroundColor = UIColor.clearColor()
+        knobE.backgroundColor = UIColor.clearColor()
+        knobF.backgroundColor = UIColor.clearColor()
+
     }
 
     func loadData(){
 
-        let dataB = ["one of a kind","small batch","large batch","mass market"]
-        let dataA = ["savory","sweet","umami"]
+        // the directions and the example were not totally consistent, so went with the drawing
+        let dataF = ["one of a kind","small batch","large batch","mass market"]
+        let dataC = ["savory","sweet","umami"]
         let dataD = ["spicy","mild"]
-        let dataC = ["crunchy","mushy","smooth"]
-        let dataF = ["a little","a lot"]
+        let dataB = ["crunchy","mushy","smooth"]
+        let dataA = ["a little","a lot"]
         let dataE = ["breakfast","brunch","lunch","snack","dinner"]
 
         knobA.loadDataForButton(arrayOfButtonTitles: dataA)
@@ -110,14 +135,10 @@ class ViewController: UIViewController {
 
     @IBAction func onKnobPressed(sender: AnyObject) {
 
-        
+
         
     }
 
-    @IBAction func onGo(sender: AnyObject) {
-
-
-    }
 
     @IBAction func onShuffle(sender: AnyObject) {
 

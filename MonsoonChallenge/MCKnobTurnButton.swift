@@ -19,24 +19,24 @@ class MCKnobTurnButton: UIControl {
 
 
         // subviews
-        var titleLabel = UILabel()
-        var backgroundView = UIView()
+        var titleLabel:UILabel?
+        var backgroundView:UIView?
 
         // button titles
         var buttonTitles:[String] = Array()
         var titleIndexBeingViewed:Int = 0  // the next title position should always be greater than the last; titleIndex % count = gives the true index number; set indexNumber to a large number if you want it to spin around multiple times
 
-        var fontName = "Papyrus"
-        var fontSize:CGFloat = 14
+        var fontName = "Helvetica Neue"  // use TextFormatter.printListOfFontFamilyNames() to see list of fonts
+        var fontSize:CGFloat = 16
         var fontColor = UIColor.whiteColor()
 
 
         // background/borders
-        var lineWidth:Float = 20
-        var line_insidePadding:Float = 15
+        var lineWidth:Float = 1
+        var line_insidePadding:Float = 3
 
         var lineColor_default:UIColor = UIColor.purpleColor()
-        var lineColor_selected:UIColor = UIColor.redColor()
+        var lineColor_selected:UIColor = UIColor(red: 255/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1.0)
 
         var degreesBetweenArcs:Float = 20
         var startingOffset:Float = -90  // want to start drawing at -90 degrees
@@ -55,35 +55,68 @@ class MCKnobTurnButton: UIControl {
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     // MARK: PUBLIC FUNCTIONS FOR USERS TO USE
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
     func loadDataForButton(#arrayOfButtonTitles:Array<String>){
 
         buttonTitles = arrayOfButtonTitles
 
-        //self.backgroundColor = UIColor.clearColor()
+        setupSubviewsIfRequired()  // weird error, tried moving out of init, but no luck, won't give correct frame size
+        self.backgroundColor = UIColor.clearColor()
+        self.clipsToBounds = true
         drawBackground()
+
         updateTitleAtIndex(titleIndexBeingViewed)
         
     }
 
-    func rotateToIndexNumber(indexNumber:Int)
+    func rotateToIndexNumber(desiredIndex:Int)
     {
-        moveToIndex(indexNumber)
+
+        // the knob uses the index number as a counter which will tell us how many times we went around (much easier to keep track of the math)
+        // if the desired indexNumber is greater than the number of items, it will spin around multiple times
+
+        // if the desired index == current index, do nothing
+        let currentIndex = self.titleIndexBeingViewed % self.buttonTitles.count
+
+        if desiredIndex == currentIndex{
+
+            return
+
+        }
+
+        // 1) find the number of full rotations completed
+        // 2) if the desiredIndexNumber is < the currentIndexNumber, then  will need to do one more rotation (we can only move clockwise)
+        // 3) multiply the number of rotations with the count to get a starting position
+        // 4) add the desired index to the start position
+
+
+        var numberOfFullRotations = Int(self.titleIndexBeingViewed / self.buttonTitles.count)
+
+        if desiredIndex < currentIndex{
+
+            numberOfFullRotations = numberOfFullRotations + 1
+
+        }
+
+        let startingPoint = numberOfFullRotations * self.buttonTitles.count
+        let moveToIndexPosition = startingPoint + desiredIndex
+
+        moveToIndex(moveToIndexPosition)
+
     }
 
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     // MARK: PRIVATE FUNCTIONS / INTERNAL WORKINGS
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        setupSubviews()
         musicPlayer.songNameAndExtention = "Highstrung.mp3"
 
     }
 
-    private func setupSubviews(){
+    private func setupSubviewsIfRequired(){
 
 
         // a UIControl is a UIView with additional functionality
@@ -92,18 +125,26 @@ class MCKnobTurnButton: UIControl {
         // 1) there is a view to put background image in, so can rotate without complications
         // 2) there is a UILabel, to display the title
 
+        let frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)
 
-        self.clipsToBounds = true
-        self.frame = CGRectMake(0, 0, 200, 200)  // ERROR HERE
+        if titleLabel == nil {
 
-        titleLabel.frame = self.frame
-        titleLabel.userInteractionEnabled = false
+            titleLabel = UILabel()
+            titleLabel!.frame = frame
+            titleLabel!.userInteractionEnabled = false
+            self.addSubview(titleLabel!)
+            self.bringSubviewToFront(titleLabel!)
 
-        backgroundView.frame = self.frame
-        backgroundView.userInteractionEnabled = false
+        }
 
-        self.addSubview(titleLabel)
-        self.addSubview(backgroundView)
+        if backgroundView == nil {
+
+            backgroundView = UIView()
+            backgroundView!.frame = frame
+            backgroundView!.userInteractionEnabled = false
+            self.addSubview(backgroundView!)
+
+        }
 
     }
 
@@ -158,7 +199,9 @@ class MCKnobTurnButton: UIControl {
 
         let indexNumber = index % buttonTitles.count
         let title = buttonTitles[indexNumber]
-        titleLabel.attributedText = TextFormatter.createAttributedString(title, withFont:fontName, fontSize:fontSize, fontColor: fontColor, nsTextAlignmentStyle: NSTextAlignment.Center)
+        let titleInCaps = title.uppercaseString
+
+        titleLabel!.attributedText = TextFormatter.createAttributedString(titleInCaps, withFont:fontName, fontSize:fontSize, fontColor: fontColor, nsTextAlignmentStyle: NSTextAlignment.Center)
 
     }
 
@@ -168,7 +211,7 @@ class MCKnobTurnButton: UIControl {
 
         UIView.animateWithDuration(Double(duration), animations: { () -> Void in
 
-            self.backgroundView.transform = CGAffineTransformMakeRotation(CGFloat(finalAngle));  // note: the transform uses cartesian coordinates
+            self.backgroundView!.transform = CGAffineTransformMakeRotation(CGFloat(finalAngle));  // note: the transform uses cartesian coordinates
 
         }) { (reallyFinishedAnimation) -> Void in
 
@@ -230,7 +273,7 @@ class MCKnobTurnButton: UIControl {
     private func removeOldLayers(){
 
         // remove all old layers
-        for layer in backgroundView.subviews{
+        for layer in backgroundView!.subviews{
 
             layer.removeFromSuperlayer()
 
@@ -244,13 +287,13 @@ class MCKnobTurnButton: UIControl {
         let width = Float(self.frame.size.width)
         let radius = width/2 - (lineWidth + line_insidePadding)
 
-        let arc = createArc(radius: radius, startAngleInRadians: 0, angleOfArcInRadians: 360*(3.14159/180), lineColor: UIColor.clearColor(), fillColor: UIColor.yellowColor())
+        let arc = createArc(radius: radius, startAngleInRadians: 0, angleOfArcInRadians: 360*(3.14159/180), lineColor: UIColor.clearColor(), fillColor: UIColor.darkGrayColor())
 
         // add alpha
         arc.opacity = 0.4
 
         // add to view
-        backgroundView.layer.addSublayer(arc)
+        backgroundView!.layer.addSublayer(arc)
 
     }
 
@@ -285,7 +328,7 @@ class MCKnobTurnButton: UIControl {
             // create arc and add sublayer
             let arc = createArc(radius: radius, startAngleInRadians: startAtAngle_inRadians, angleOfArcInRadians: arcAngle_inRadians, lineColor: color, fillColor:UIColor.clearColor())
 
-            backgroundView.layer.addSublayer(arc)
+            backgroundView!.layer.addSublayer(arc)
 
             // increment startAtAngle
             startAtAngle_inRadians = startAtAngle_inRadians + arcAngle_inRadians + degreesBetweenArcs*(3.14159/180)

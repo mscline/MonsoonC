@@ -10,8 +10,9 @@ import UIKit
 
 class MCKnobTurnButton_Facade: MCKnobTurnButton {
 
-    /* I MISS MY .h FILE
+    /* THIS IS AN INTERFACE / HEADER FILE, SO THE USER DOESN'T HAVE TO LOOK AT ALL OF THE CODE
     
+
     // button titles
     var titleIndexBeingViewed:Int = 0  // the next title position should always be greater than the last; titleIndex % count = gives the true index number; set indexNumber to a large number if you want it to spin around multiple times
 
@@ -47,30 +48,9 @@ class MCKnobTurnButton_Facade: MCKnobTurnButton {
 
     override func rotateToIndexNumber(desiredIndex:Int)
     {
+        // if the indexNumber is greater than the number of items, it will spin around multiple times
 
-        var moveToIndex:Int?
-
-        // the user will provide an index number between 0 and the count -1
-        // the knob uses the index number as a counter which will tell us how many times we went around (much easier to keep track of the math)
-        // so need to find convert the index number to a counter
-
-        let currentIndex = self.titleIndexBeingViewed % self.buttonTitles.count
-
-        if desiredIndex == currentIndex{
-
-            return
-
-        }else if desiredIndex > currentIndex{
-
-            let jumpNumberOfIndexes = desiredIndex - currentIndex
-            moveToIndex = currentIndex + jumpNumberOfIndexes
-
-        } else {
-
-            return
-        }
-
-        super.rotateToIndexNumber(moveToIndex!)
+        super.rotateToIndexNumber(desiredIndex)
         
     }
 
