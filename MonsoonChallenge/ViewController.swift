@@ -19,6 +19,15 @@ class ViewController: UIViewController {
         @IBOutlet weak var knobE: MCKnobTurnButton_Facade!
         @IBOutlet weak var knobF: MCKnobTurnButton_Facade!
 
+        // Guides for spacing
+        @IBOutlet weak var topSpacer: UIView!
+        @IBOutlet weak var centerSpacer: UIView!
+        @IBOutlet weak var bottomSpacer: UIView!
+        @IBOutlet weak var botLayoutSpacer: UIView!
+        @IBOutlet weak var topLeftSpacer: UIView!
+        @IBOutlet weak var topRightSpacer: UIView!
+
+        // Arrays
         var arrayOfKnobs:[MCKnobTurnButton_Facade] = Array()
 
 
@@ -35,6 +44,7 @@ class ViewController: UIViewController {
 
         addNavBarItems()
         setBackgroundImage()
+        hideLayoutConvenienceGuidesAndSpacers()
         loadData()
 
     }
@@ -61,6 +71,17 @@ class ViewController: UIViewController {
         imageV.image = UIImage(named: "MON_Rectangle-5")
         self.view.addSubview(imageV)
         self.view.sendSubviewToBack(imageV)
+
+    }
+
+    func hideLayoutConvenienceGuidesAndSpacers(){
+
+        topSpacer.backgroundColor = UIColor.clearColor()
+        bottomSpacer.backgroundColor = UIColor.clearColor()
+        centerSpacer.backgroundColor = UIColor.clearColor()
+        botLayoutSpacer.backgroundColor = UIColor.clearColor()
+        topLeftSpacer.backgroundColor = UIColor.clearColor()
+        topRightSpacer.backgroundColor = UIColor.clearColor()
 
     }
 
